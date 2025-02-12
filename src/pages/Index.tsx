@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,7 +18,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <img src="/lovable-uploads/6082cd80-cac0-4eaf-b94d-5a5085233089.png" alt="SamarthX" className="h-8" />
+              <div className="flex items-center">
+                <span className="text-2xl font-bold">Samarth</span>
+                <span className="text-2xl font-bold text-[#F97316]">X</span>
+              </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
               <Button variant="ghost">Parents & Students</Button>
