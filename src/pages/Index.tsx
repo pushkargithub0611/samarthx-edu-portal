@@ -101,29 +101,7 @@ const Index = () => {
       {/* Map Section */}
       <section className="bg-[#fff3e0] py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="font-semibold mb-4">States</h3>
-              <div className="space-y-2">
-                {Object.keys(stateCoordinates).map((state) => (
-                  <div
-                    key={state}
-                    className={`p-2 rounded cursor-pointer transition-colors ${
-                      selectedState === state
-                        ? 'bg-orange-100 text-orange-600'
-                        : 'hover:bg-gray-100'
-                    }`}
-                    onClick={() => handleStateSelect(state)}
-                  >
-                    {state}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
-              <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
-            </div>
-          </div>
+          <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
         </div>
       </section>
 

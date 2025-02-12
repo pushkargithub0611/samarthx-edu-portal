@@ -1,6 +1,9 @@
 
 import { useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const containerStyle = {
   width: '100%',
@@ -32,6 +35,8 @@ interface IndiaMapProps {
 }
 
 const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
+  const [filter, setFilter] = useState<'all' | 'north' | 'south'>('all');
+
   const handleMarkerClick = (stateName: string) => {
     onStateSelect(stateName);
   };
@@ -50,45 +55,92 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
       },
       strictBounds: true,
     },
-    mapTypeControl: true,
+    mapTypeControl: false,
     streetViewControl: false,
-    fullscreenControl: true,
+    fullscreenControl: false,
     zoomControl: true,
   };
 
+  const filterStates = (states: [string, { lat: number; lng: number }][]) => {
+    if (filter === 'all') return states;
+    if (filter === 'north') {
+      return states.filter(([_, coords]) => coords.lat > 23);
+    }
+    return states.filter(([_, coords]) => coords.lat <= 23);
+  };
+
   return (
-    <div className="relative w-full h-full min-h-[400px]">
-      {selectedState && (
-        <div className="absolute top-2 left-2 bg-white p-2 rounded shadow z-10">
-          Selected: {selectedState}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+      <Card className="p-6 space-y-6">
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">Select State</h3>
+          <Select value={selectedState || ''} onValueChange={onStateSelect}>
+            <SelectTrigger>
+              <SelectValue placeholder="Choose a state" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.keys(stateCoordinates).map((state) => (
+                <SelectItem key={state} value={state}>
+                  {state}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-      )}
-      <LoadScript googleMapsApiKey="">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={selectedState ? 7 : 5}
-          options={options}
-        >
-          {Object.entries(stateCoordinates).map(([stateName, coords]) => (
-            <Marker
-              key={stateName}
-              position={coords}
-              onClick={() => handleMarkerClick(stateName)}
-              options={{
-                icon: {
-                  url: `data:image/svg+xml,${encodeURIComponent(`
-                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="10" cy="10" r="8" fill="${selectedState === stateName ? '#F97316' : '#1e40af'}" 
-                        stroke="white" stroke-width="2"/>
-                    </svg>
-                  `)}`
-                }
-              }}
-            />
-          ))}
-        </GoogleMap>
-      </LoadScript>
+        
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">Filters</h3>
+          <div className="flex flex-col gap-2">
+            <Button 
+              variant={filter === 'all' ? 'default' : 'outline'} 
+              onClick={() => setFilter('all')}
+            >
+              All States
+            </Button>
+            <Button 
+              variant={filter === 'north' ? 'default' : 'outline'} 
+              onClick={() => setFilter('north')}
+            >
+              North India
+            </Button>
+            <Button 
+              variant={filter === 'south' ? 'default' : 'outline'} 
+              onClick={() => setFilter('south')}
+            >
+              South India
+            </Button>
+          </div>
+        </div>
+      </Card>
+
+      <div className="md:col-span-2 h-[600px]">
+        <LoadScript googleMapsApiKey="">
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={selectedState ? 7 : 5}
+            options={options}
+          >
+            {filterStates(Object.entries(stateCoordinates)).map(([stateName, coords]) => (
+              <Marker
+                key={stateName}
+                position={coords}
+                onClick={() => handleMarkerClick(stateName)}
+                options={{
+                  icon: {
+                    url: `data:image/svg+xml,${encodeURIComponent(`
+                      <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8" fill="${selectedState === stateName ? '#F97316' : '#1e40af'}" 
+                          stroke="white" stroke-width="2"/>
+                      </svg>
+                    `)}`
+                  }
+                }}
+              />
+            ))}
+          </GoogleMap>
+        </LoadScript>
+      </div>
     </div>
   );
 };
