@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel"
 import * as React from "react"
 import useEmblaCarousel from 'embla-carousel-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
   Maharashtra: { lat: 19.7515, lng: 75.7139 },
@@ -61,6 +62,66 @@ const heroImages = [
     alt: "SamarthX Quote",
     title: "SamarthX Vision",
     description: "\"Education is not just about learning, it's about transforming lives through technology\" - SamarthX"
+  }
+];
+
+const newsData = [
+  {
+    title: "National Education Policy 2024 Updates",
+    date: "March 15, 2024",
+    category: "Policy Update",
+    description: "New guidelines released for implementing NEP 2024 in schools across India. Focus on digital learning and AI integration."
+  },
+  {
+    title: "CBSE Board Exam Schedule Released",
+    date: "March 12, 2024",
+    category: "Academic Calendar",
+    description: "Central Board of Secondary Education announces exam dates for class 10th and 12th. New digital assessment methods introduced."
+  },
+  {
+    title: "Smart Classroom Initiative Launch",
+    date: "March 10, 2024",
+    category: "Infrastructure",
+    description: "Government launches nationwide smart classroom initiative. 10,000 schools to receive digital infrastructure upgrade."
+  },
+  {
+    title: "Teacher Training Program 2024",
+    date: "March 8, 2024",
+    category: "Professional Development",
+    description: "National program for upskilling 100,000 teachers in digital teaching methodologies announced."
+  }
+];
+
+const notificationData = [
+  {
+    title: "School Registration Portal Open",
+    date: "March 14, 2024",
+    type: "Administrative"
+  },
+  {
+    title: "Digital Library Access Available",
+    date: "March 13, 2024",
+    type: "Resource"
+  },
+  {
+    title: "Parent-Teacher Meeting Schedule",
+    date: "March 11, 2024",
+    type: "Event"
+  },
+  {
+    title: "Sports Day Registration",
+    date: "March 9, 2024",
+    type: "Event"
+  },
+  {
+    title: "Summer Camp Programs",
+    date: "March 7, 2024",
+    type: "Activity"
+  },
+  {
+    title: "Scholarship Applications",
+    date: "March 5, 2024",
+    type: "Academic"
   }
 ];
 
@@ -200,15 +261,42 @@ const Index = () => {
       <section className="py-12 bg-[#ffe4e1]">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold mb-4">Latest Updates</h3>
-              {/* Add content here */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold mb-6">Latest Updates</h3>
+              <div className="space-y-4">
+                {newsData.slice(0, 4).map((news, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="flex justify-between items-center">
+                        <CardTitle className="text-lg font-semibold">{news.title}</CardTitle>
+                        <span className="text-sm text-gray-500">{news.date}</span>
+                      </div>
+                      <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">
+                        {news.category}
+                      </span>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{news.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">News and Notifications</h3>
+              <h3 className="text-2xl font-semibold mb-6">News and Notifications</h3>
               <div className="grid grid-cols-2 gap-4">
-                {Array(6).fill(null).map((_, i) => (
-                  <div key={i} className="bg-white p-4 rounded-lg shadow"></div>
+                {notificationData.map((notification, index) => (
+                  <Card key={index} className="hover:shadow-md transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-sm font-medium">{notification.title}</CardTitle>
+                      <div className="flex justify-between items-center mt-2">
+                        <span className="text-xs text-gray-500">{notification.date}</span>
+                        <span className="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">
+                          {notification.type}
+                        </span>
+                      </div>
+                    </CardHeader>
+                  </Card>
                 ))}
               </div>
             </div>
