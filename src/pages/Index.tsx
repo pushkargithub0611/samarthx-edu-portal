@@ -67,31 +67,31 @@ const heroImages = [
 
 const newsData = [
   {
-    title: "Scholar Nitisha Aggarwal Invited to Speak at Xcentricity, St. Stephen's College",
+    title: "Students from Delhi Public School Win National Science Competition 2024",
     date: "March 15, 2024",
     category: "EVENTS NEWS",
-    description: "A distinguished speaker session on innovative teaching methodologies and digital transformation in education.",
+    description: "A team of young innovators from DPS created an AI-powered solution for sustainable agriculture, securing first place among 500 schools nationwide.",
     image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45"
   },
   {
-    title: "CPS Lab Team Shines Among Top 10 Finalists at NariYukti Tech Hack – 2025",
+    title: "Kendriya Vidyalaya launches 'Digital First' Learning Initiative",
     date: "March 12, 2024",
     category: "EVENTS NEWS",
-    description: "Students showcase innovative solutions at the prestigious tech hackathon.",
+    description: "Revolutionary program integrating AR/VR technology into classroom teaching begins across 50 KV schools, transforming traditional education methods.",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7"
   },
   {
-    title: "Empowering Cloud Architects: Successful Completion of \"Architecting on AWS\" Training Program at DUCC",
+    title: "Navodaya Vidyalaya Students Shine in International Olympiad",
     date: "March 10, 2024",
     category: "EVENTS NEWS",
-    description: "Professional development program enhancing cloud computing skills.",
+    description: "Five students from JNV schools receive gold medals in International Mathematics Olympiad, marking a historic achievement for Indian education.",
     image: "https://images.unsplash.com/photo-1577896851231-70ef18881754"
   },
   {
-    title: "CPS Plenary Talk – Towards Explainable, Responsible, and Autonomous Artificial Intelligence",
+    title: "Education Ministry Announces 'Smart School' Certification Program",
     date: "March 8, 2024",
     category: "LECTURE UPDATES",
-    description: "Expert discussion on the future of AI in education and research.",
+    description: "New certification program launched to recognize schools implementing innovative teaching methods and digital infrastructure.",
     image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
   }
 ];
