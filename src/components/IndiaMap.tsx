@@ -17,7 +17,7 @@ const IndiaMap = () => {
       )}
       <div className="w-full h-full flex items-center justify-center">
         <img 
-          src="/india-map.png" 
+          src="/lovable-uploads/c4a6ecac-888c-4f7b-a0ab-31a6727e8eba.png" 
           alt="Map of India"
           className="max-w-full max-h-full object-contain"
         />
