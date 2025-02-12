@@ -67,28 +67,32 @@ const heroImages = [
 
 const newsData = [
   {
-    title: "National Education Policy 2024 Updates",
+    title: "Students from Delhi Public School Win National Science Competition 2024",
     date: "March 15, 2024",
-    category: "Policy Update",
-    description: "New guidelines released for implementing NEP 2024 in schools across India. Focus on digital learning and AI integration."
+    category: "EVENTS NEWS",
+    description: "A team of young innovators from DPS created an AI-powered solution for sustainable agriculture, securing first place among 500 schools nationwide.",
+    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45"
   },
   {
-    title: "CBSE Board Exam Schedule Released",
+    title: "Kendriya Vidyalaya launches 'Digital First' Learning Initiative",
     date: "March 12, 2024",
-    category: "Academic Calendar",
-    description: "Central Board of Secondary Education announces exam dates for class 10th and 12th. New digital assessment methods introduced."
+    category: "EVENTS NEWS",
+    description: "Revolutionary program integrating AR/VR technology into classroom teaching begins across 50 KV schools, transforming traditional education methods.",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7"
   },
   {
-    title: "Smart Classroom Initiative Launch",
+    title: "Navodaya Vidyalaya Students Shine in International Olympiad",
     date: "March 10, 2024",
-    category: "Infrastructure",
-    description: "Government launches nationwide smart classroom initiative. 10,000 schools to receive digital infrastructure upgrade."
+    category: "EVENTS NEWS",
+    description: "Five students from JNV schools receive gold medals in International Mathematics Olympiad, marking a historic achievement for Indian education.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754"
   },
   {
-    title: "Teacher Training Program 2024",
+    title: "Education Ministry Announces 'Smart School' Certification Program",
     date: "March 8, 2024",
-    category: "Professional Development",
-    description: "National program for upskilling 100,000 teachers in digital teaching methodologies announced."
+    category: "LECTURE UPDATES",
+    description: "New certification program launched to recognize schools implementing innovative teaching methods and digital infrastructure.",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
   }
 ];
 
@@ -122,37 +126,6 @@ const notificationData = [
     title: "Scholarship Applications",
     date: "March 5, 2024",
     type: "Academic"
-  }
-];
-
-const newsData = [
-  {
-    title: "Students from Delhi Public School Win National Science Competition 2024",
-    date: "March 15, 2024",
-    category: "EVENTS NEWS",
-    description: "A team of young innovators from DPS created an AI-powered solution for sustainable agriculture, securing first place among 500 schools nationwide.",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45"
-  },
-  {
-    title: "Kendriya Vidyalaya launches 'Digital First' Learning Initiative",
-    date: "March 12, 2024",
-    category: "EVENTS NEWS",
-    description: "Revolutionary program integrating AR/VR technology into classroom teaching begins across 50 KV schools, transforming traditional education methods.",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7"
-  },
-  {
-    title: "Navodaya Vidyalaya Students Shine in International Olympiad",
-    date: "March 10, 2024",
-    category: "EVENTS NEWS",
-    description: "Five students from JNV schools receive gold medals in International Mathematics Olympiad, marking a historic achievement for Indian education.",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754"
-  },
-  {
-    title: "Education Ministry Announces 'Smart School' Certification Program",
-    date: "March 8, 2024",
-    category: "LECTURE UPDATES",
-    description: "New certification program launched to recognize schools implementing innovative teaching methods and digital infrastructure.",
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
   }
 ];
 
