@@ -32,21 +32,33 @@ const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
 const heroImages = [
   {
     url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
-    alt: "Education Image 1",
-    title: "Empowering Schools",
-    description: "Transforming Education – AI-Driven, Governance-Connected"
+    alt: "Empowering Schools",
+    title: "Empowering Schools, Transforming Education",
+    description: "AI-Driven, Governance-Connected, Future-Ready!"
   },
   {
     url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    alt: "Education Image 2",
+    alt: "Technology in Education",
     title: "Future-Ready Learning",
     description: "One Platform for Smarter Schools, Smarter Learning"
   },
   {
     url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    alt: "Education Image 3",
+    alt: "Digital Learning",
     title: "Connected Education",
     description: "From Intelligence to Impact – Transforming Education"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    alt: "AI Innovation",
+    title: "AI-Driven Education",
+    description: "Revolutionizing Learning with Advanced Technology"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    alt: "SamarthX Quote",
+    title: "SamarthX Vision",
+    description: "\"Education is not just about learning, it's about transforming lives through technology\" - SamarthX"
   }
 ];
 
