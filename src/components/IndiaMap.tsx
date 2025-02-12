@@ -82,9 +82,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
                       <circle cx="10" cy="10" r="8" fill="${selectedState === stateName ? '#F97316' : '#1e40af'}" 
                         stroke="white" stroke-width="2"/>
                     </svg>
-                  `)}`,
-                  scaledSize: new window.google.maps.Size(20, 20),
-                  anchor: new window.google.maps.Point(10, 10)
+                  `)}`
                 }
               }}
             />
