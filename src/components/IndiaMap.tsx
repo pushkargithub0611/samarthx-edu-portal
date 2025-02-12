@@ -132,8 +132,8 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
         {selectedMetric === 'region' && (
           <>
             <Separator />
-            <div className="space-y-1">
-              <h3 className="text-sm font-semibold">Region Filters</h3>
+            <div>
+              <h3 className="text-sm font-semibold mb-2">Region Filters</h3>
               <div className="flex flex-col gap-1">
                 <Button 
                   variant={regionFilter === 'all' ? 'default' : 'outline'} 
