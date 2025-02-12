@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import IndiaMap from "@/components/IndiaMap";
 import { useState } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
   Maharashtra: { lat: 19.7515, lng: 75.7139 },
@@ -21,6 +28,27 @@ const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
   Punjab: { lat: 31.1471, lng: 75.3412 },
   Haryana: { lat: 29.0588, lng: 76.0856 }
 };
+
+const heroImages = [
+  {
+    url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+    alt: "Education Image 1",
+    title: "Empowering Schools",
+    description: "Transforming Education – AI-Driven, Governance-Connected"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    alt: "Education Image 2",
+    title: "Future-Ready Learning",
+    description: "One Platform for Smarter Schools, Smarter Learning"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    alt: "Education Image 3",
+    title: "Connected Education",
+    description: "From Intelligence to Impact – Transforming Education"
+  }
+];
 
 const Index = () => {
   const { toast } = useToast();
@@ -79,20 +107,43 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 space-y-6">
-              <h1 className="text-4xl font-bold">
-                Empowering Schools, Transforming Education – AI-Driven, Governance-Connected, Future-Ready!
-              </h1>
-              <p className="text-lg text-gray-600">
-                From Intelligence to Impact – One Platform for Smarter Schools. Smarter Learning!
-              </p>
-              <div className="flex space-x-4">
-                <Button variant="outline">Previous</Button>
-                <Button variant="outline">Next</Button>
-              </div>
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {heroImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="space-y-4">
+                        <h1 className="text-4xl font-bold">
+                          {image.title}
+                        </h1>
+                        <p className="text-lg text-gray-600">
+                          {image.description}
+                        </p>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex space-x-4 mt-6">
+                  <CarouselPrevious className="relative static" />
+                  <CarouselNext className="relative static" />
+                </div>
+              </Carousel>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              {/* Placeholder for hero image */}
-              <div className="bg-white rounded-lg h-64 w-full"></div>
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {heroImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="overflow-hidden rounded-lg">
+                        <img 
+                          src={image.url} 
+                          alt={image.alt}
+                          className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
           </div>
         </div>
