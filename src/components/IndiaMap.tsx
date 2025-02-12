@@ -128,38 +128,6 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
             ))}
           </div>
         </div>
-
-        {selectedMetric === 'region' && (
-          <>
-            <Separator />
-            <div>
-              <h3 className="text-sm font-semibold mb-2">Region Filters</h3>
-              <div className="flex flex-col gap-1">
-                <Button 
-                  variant={regionFilter === 'all' ? 'default' : 'outline'} 
-                  onClick={() => setRegionFilter('all')}
-                  className="h-7 py-0 text-xs"
-                >
-                  All States
-                </Button>
-                <Button 
-                  variant={regionFilter === 'north' ? 'default' : 'outline'} 
-                  onClick={() => setRegionFilter('north')}
-                  className="h-7 py-0 text-xs"
-                >
-                  North India
-                </Button>
-                <Button 
-                  variant={regionFilter === 'south' ? 'default' : 'outline'} 
-                  onClick={() => setRegionFilter('south')}
-                  className="h-7 py-0 text-xs"
-                >
-                  South India
-                </Button>
-              </div>
-            </div>
-          </>
-        )}
       </Card>
 
       <div className="md:col-span-3 h-[400px]">
