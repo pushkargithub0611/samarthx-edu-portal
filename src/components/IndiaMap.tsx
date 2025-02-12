@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -93,8 +94,8 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-3 p-2">
-      <Card className="p-3 space-y-3 md:col-span-1">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-2 p-2">
+      <Card className="p-3 space-y-3 md:col-span-3">
         <div className="space-y-1">
           <h3 className="text-sm font-semibold">Select State</h3>
           <Select value={selectedState || ''} onValueChange={onStateSelect}>
@@ -130,7 +131,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
         </div>
       </Card>
 
-      <div className="md:col-span-3 h-[400px]">
+      <div className="md:col-span-9 h-[400px]">
         <LoadScript googleMapsApiKey="">
           <GoogleMap
             mapContainerStyle={containerStyle}
