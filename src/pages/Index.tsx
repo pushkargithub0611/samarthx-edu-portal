@@ -130,33 +130,33 @@ const Index = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-[#e8f3e8] py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 space-y-6">
-              <Carousel setApi={setApi}>
+      <section className="bg-[#e8f3e8] py-8">
+        <div className="container mx-auto px-2">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="md:w-1/2">
+              <Carousel setApi={setApi} className="max-w-[600px]">
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="space-y-4">
-                        <h1 className="text-4xl font-bold">
+                      <div className="space-y-2">
+                        <h1 className="text-3xl md:text-4xl font-bold leading-tight">
                           {image.title}
                         </h1>
-                        <p className="text-lg text-gray-600">
+                        <p className="text-base md:text-lg text-gray-600">
                           {image.description}
                         </p>
                       </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <div className="flex space-x-4 mt-6">
+                <div className="flex space-x-2 mt-4">
                   <CarouselPrevious className="relative static" />
                   <CarouselNext className="relative static" />
                 </div>
               </Carousel>
             </div>
-            <div className="md:w-1/2 mt-8 md:mt-0">
-              <Carousel setApi={setSecondApi}>
+            <div className="md:w-1/2">
+              <Carousel setApi={setSecondApi} className="max-w-[600px]">
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
@@ -164,7 +164,7 @@ const Index = () => {
                         <img 
                           src={image.url} 
                           alt={image.alt}
-                          className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+                          className="w-full h-[300px] md:h-[350px] object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>
                     </CarouselItem>
