@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -94,10 +93,10 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
-      <Card className="p-6 space-y-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-2">
+      <Card className="p-4 space-y-4 md:col-span-1">
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Select State</h3>
+          <h3 className="text-base font-semibold">Select State</h3>
           <Select value={selectedState || ''} onValueChange={onStateSelect}>
             <SelectTrigger>
               <SelectValue placeholder="Choose a state" />
@@ -114,15 +113,15 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
 
         <Separator />
         
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold">View Metrics</h3>
-          <div className="flex flex-col gap-2">
+        <div className="space-y-3">
+          <h3 className="text-base font-semibold">View Metrics</h3>
+          <div className="flex flex-col gap-1.5">
             {metrics.map((metric) => (
               <Button 
                 key={metric.id}
                 variant={selectedMetric === metric.id ? 'default' : 'outline'} 
                 onClick={() => setSelectedMetric(metric.id as MetricType)}
-                className="justify-start text-left h-auto py-3 whitespace-normal"
+                className="justify-start text-left h-auto py-2 text-sm whitespace-normal"
               >
                 {metric.label}
               </Button>
@@ -134,23 +133,26 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
           <>
             <Separator />
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold">Region Filters</h3>
-              <div className="flex flex-col gap-2">
+              <h3 className="text-base font-semibold">Region Filters</h3>
+              <div className="flex flex-col gap-1.5">
                 <Button 
                   variant={regionFilter === 'all' ? 'default' : 'outline'} 
                   onClick={() => setRegionFilter('all')}
+                  className="py-2 text-sm"
                 >
                   All States
                 </Button>
                 <Button 
                   variant={regionFilter === 'north' ? 'default' : 'outline'} 
                   onClick={() => setRegionFilter('north')}
+                  className="py-2 text-sm"
                 >
                   North India
                 </Button>
                 <Button 
                   variant={regionFilter === 'south' ? 'default' : 'outline'} 
                   onClick={() => setRegionFilter('south')}
+                  className="py-2 text-sm"
                 >
                   South India
                 </Button>
@@ -160,7 +162,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
         )}
       </Card>
 
-      <div className="md:col-span-2 h-[600px]">
+      <div className="md:col-span-3 h-[500px]">
         <LoadScript googleMapsApiKey="">
           <GoogleMap
             mapContainerStyle={containerStyle}

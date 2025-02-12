@@ -99,8 +99,8 @@ const Index = () => {
       </section>
 
       {/* Map Section */}
-      <section className="bg-[#fff3e0] py-12">
-        <div className="container mx-auto px-4">
+      <section className="bg-[#fff3e0] py-6">
+        <div className="container mx-auto px-2">
           <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
         </div>
       </section>
