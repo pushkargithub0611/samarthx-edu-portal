@@ -9,6 +9,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import * as React from "react"
+import useEmblaCarousel from 'embla-carousel-react'
 
 const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
   Maharashtra: { lat: 19.7515, lng: 75.7139 },
@@ -65,6 +67,19 @@ const heroImages = [
 const Index = () => {
   const { toast } = useToast();
   const [selectedState, setSelectedState] = useState<string | null>(null);
+  const [api, setApi] = React.useState<any>(null);
+  const [secondApi, setSecondApi] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    if (api && secondApi) {
+      api.on('select', () => {
+        secondApi.scrollTo(api.selectedScrollSnap());
+      });
+      secondApi.on('select', () => {
+        api.scrollTo(secondApi.selectedScrollSnap());
+      });
+    }
+  }, [api, secondApi]);
 
   const handleDemoRequest = () => {
     toast({
@@ -119,7 +134,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 space-y-6">
-              <Carousel className="w-full">
+              <Carousel setApi={setApi}>
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
@@ -141,7 +156,7 @@ const Index = () => {
               </Carousel>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
-              <Carousel className="w-full">
+              <Carousel setApi={setSecondApi}>
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
