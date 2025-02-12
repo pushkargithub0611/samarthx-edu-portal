@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -43,6 +44,17 @@ interface IndiaMapProps {
   onStateSelect: (state: string) => void;
   selectedState: string | null;
 }
+
+const metrics = [
+  { id: 'region', label: 'Region' },
+  { id: 'drinkingWater', label: 'Percentage of Schools with Drinking Water Facility (2021-22)' },
+  { id: 'enrollment', label: 'Gross Enrolment Ratio (2021-22)' },
+  { id: 'dropout', label: 'Drop-out Rate (2021-22)' },
+  { id: 'computers', label: 'Percentage of Schools with Computers (2021-22)' },
+  { id: 'electricity', label: 'Percentage of Schools with Electricity (2021-22)' },
+  { id: 'boysToilets', label: 'Schools with Boys\' Toilets (2021-22)' },
+  { id: 'girlsToilets', label: 'Schools with Girls\' Toilets (2021-22)' }
+] as const;
 
 const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
   const [selectedMetric, setSelectedMetric] = useState<MetricType>('region');
@@ -109,11 +121,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
 
   const filterStates = (states: [string, { lat: number; lng: number }][]) => {
     if (selectedMetric !== 'region') return states;
-    if (regionFilter === 'all') return states;
-    if (regionFilter === 'north') {
-      return states.filter(([_, coords]) => coords.lat > 23);
-    }
-    return states.filter(([_, coords]) => coords.lat <= 23);
+    return states;
   };
 
   return (
