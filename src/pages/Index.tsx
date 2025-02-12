@@ -1,6 +1,5 @@
 
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Lock, Users, BarChart, Book, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -14,84 +13,121 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-secondary/20">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <h1 className="text-2xl font-bold text-primary">SamarthX</h1>
-            <div className="hidden md:flex space-x-6">
-              <a href="#features" className="text-gray-600 hover:text-primary transition-colors">Features</a>
-              <a href="#solutions" className="text-gray-600 hover:text-primary transition-colors">Solutions</a>
-              <a href="#about" className="text-gray-600 hover:text-primary transition-colors">About</a>
+    <div className="min-h-screen bg-white">
+      {/* Top Navigation */}
+      <nav className="bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <img src="/lovable-uploads/6082cd80-cac0-4eaf-b94d-5a5085233089.png" alt="SamarthX" className="h-8" />
             </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="outline">Login</Button>
-            <Button>Get Started</Button>
+            <div className="hidden md:flex items-center space-x-4">
+              <Button variant="ghost">Parents & Students</Button>
+              <Button variant="ghost">Support</Button>
+              <Button variant="ghost">Search</Button>
+              <Button variant="outline">Login</Button>
+              <Button>Get a Demo</Button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto text-center">
-          <div className="inline-flex items-center bg-accent px-4 py-1.5 rounded-full mb-6 animate-fade-in">
-            <span className="text-sm font-medium text-accent-foreground">Ministry of Education Initiative</span>
+      {/* Secondary Navigation */}
+      <div className="bg-gray-100 border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex overflow-x-auto py-2 space-x-6">
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Solutions</a>
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Dashboards</a>
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">SamarthX AI</a>
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Documents Management</a>
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Community & Support</a>
+            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">About SamarthX</a>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-down">
-            Empowering Schools,<br />Transforming Education
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up">
-            One unified platform for smarter schools. AI-Driven, Governance-Connected, Future-Ready.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
-            <Button size="lg" className="group">
-              Request Demo <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Learn More
-            </Button>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="bg-[#e8f3e8] py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2 space-y-6">
+              <h1 className="text-4xl font-bold">
+                Empowering Schools, Transforming Education – AI-Driven, Governance-Connected, Future-Ready!
+              </h1>
+              <p className="text-lg text-gray-600">
+                From Intelligence to Impact – One Platform for Smarter Schools. Smarter Learning!
+              </p>
+              <div className="flex space-x-4">
+                <Button variant="outline">Previous</Button>
+                <Button variant="outline">Next</Button>
+              </div>
+            </div>
+            <div className="md:w-1/2 mt-8 md:mt-0">
+              {/* Placeholder for hero image */}
+              <div className="bg-white rounded-lg h-64 w-full"></div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 bg-white" id="features">
+      {/* Map Section */}
+      <section className="bg-[#fff3e0] py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Comprehensive School Management</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: "Student Management",
-                description: "Complete student lifecycle management from enrollment to graduation"
-              },
-              {
-                icon: BarChart,
-                title: "Academic Performance",
-                description: "Track and analyze student progress with CCE-compliant evaluation"
-              },
-              {
-                icon: Lock,
-                title: "Secure Access",
-                description: "Role-based access control with Aadhaar integration"
-              },
-              {
-                icon: Shield,
-                title: "Compliance Ready",
-                description: "Built-in UDISE compliance and automated reporting"
-              },
-              {
-                icon: Book,
-                title: "Resource Management",
-                description: "Efficient management of textbooks, meals, and infrastructure"
-              }
-            ].map((feature, index) => (
-              <div key={index} className="group p-6 rounded-2xl border bg-white hover:shadow-lg transition-all duration-300">
-                <feature.icon className="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-4 rounded-lg shadow">
+              <h3 className="font-semibold mb-4">States</h3>
+              {/* Add dropdown and filters here */}
+            </div>
+            <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
+              {/* India map visualization would go here */}
+              <div className="h-64 bg-gray-100 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Bar */}
+      <div className="bg-blue-600 text-white py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-around text-sm">
+            <span>AI-Driven</span>
+            <span>Employee | Attendance</span>
+            <span>Student Performance</span>
+            <span>Welfare & Incentives</span>
+            <span>Infrastructure</span>
+          </div>
+        </div>
+      </div>
+
+      {/* News & Resources */}
+      <section className="py-12 bg-[#ffe4e1]">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="text-xl font-semibold mb-4">Latest Updates</h3>
+              {/* Add content here */}
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">News and Notifications</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {Array(6).fill(null).map((_, i) => (
+                  <div key={i} className="bg-white p-4 rounded-lg shadow"></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resources Carousel */}
+      <section className="py-12 bg-[#fff8dc]">
+        <div className="container mx-auto px-4">
+          <Button variant="outline" className="mb-4">View More Resources</Button>
+          <div className="flex overflow-x-auto space-x-4 pb-4">
+            {Array(5).fill(null).map((_, i) => (
+              <div key={i} className="flex-none w-64">
+                <div className="bg-blue-500 h-36 rounded-lg"></div>
+                <p className="mt-2 text-sm text-center">Resource {i + 1}</p>
               </div>
             ))}
           </div>
@@ -99,84 +135,102 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="bg-[#8b4513] text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">1.57M+</div>
-              <div className="text-primary-foreground/80">Active Students</div>
+              <div className="text-3xl font-bold">1.57 Million</div>
+              <div>Students</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">1400+</div>
-              <div className="text-primary-foreground/80">Institutions</div>
+              <div className="text-3xl font-bold">1.57 Million</div>
+              <div>Students</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">98%</div>
-              <div className="text-primary-foreground/80">Satisfaction Rate</div>
+              <div className="text-3xl font-bold">1.57 Million</div>
+              <div>Students</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Demo Request Form */}
-      <section className="py-20">
+      {/* Partners Section */}
+      <section className="bg-[#4b0082] text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-lg mb-8">Trusted to power 1400+ institutions, multiple campuses, and systems</p>
+          <div className="flex justify-center space-x-8">
+            {/* Add partner logos here */}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Section */}
+      <section className="py-12 bg-[#f0f8ff]">
         <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
-            <h2 className="text-2xl font-bold mb-6 text-center">Get a Demo</h2>
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              handleDemoRequest();
-            }} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="p-2 border rounded-lg"
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="p-2 border rounded-lg"
-                  required
-                />
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="flex items-center">
+              <div>
+                <h2 className="text-2xl font-bold mb-4">We're in this together.</h2>
+                <p className="text-gray-600">
+                  Let's discuss how Banner can drive innovation and successful outcomes for your entire institution.
+                </p>
+                <Button className="mt-4">Get a Live Demo</Button>
               </div>
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full p-2 border rounded-lg"
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full p-2 border rounded-lg"
-                required
-              />
-              <input
-                type="text"
-                placeholder="School/Institution Name"
-                className="w-full p-2 border rounded-lg"
-                required
-              />
-              <Button type="submit" className="w-full">
-                Schedule Demo
-              </Button>
-            </form>
+            </div>
+            <div className="bg-[#00008b] text-white p-8 rounded-lg">
+              <h3 className="text-xl font-bold mb-6">Get a Demo.</h3>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                handleDemoRequest();
+              }} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    className="p-2 rounded text-black"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="p-2 rounded text-black"
+                    required
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-2 rounded text-black"
+                  required
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="w-full p-2 rounded text-black"
+                  required
+                />
+                <div className="grid grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Job Title"
+                    className="p-2 rounded text-black"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="School/District"
+                    className="p-2 rounded text-black"
+                    required
+                  />
+                </div>
+                <Button type="submit" variant="outline" className="w-full">
+                  Submit
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-secondary py-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-sm text-gray-600">
-              © 2024 SamarthX. An initiative by the Ministry of Education.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
