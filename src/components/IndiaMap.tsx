@@ -75,13 +75,17 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
               key={stateName}
               position={coords}
               onClick={() => handleMarkerClick(stateName)}
-              icon={{
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: selectedState === stateName ? 8 : 6,
-                fillColor: selectedState === stateName ? '#F97316' : '#1e40af',
-                fillOpacity: 0.8,
-                strokeWeight: 2,
-                strokeColor: '#fff',
+              options={{
+                icon: {
+                  url: `data:image/svg+xml,${encodeURIComponent(`
+                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="8" fill="${selectedState === stateName ? '#F97316' : '#1e40af'}" 
+                        stroke="white" stroke-width="2"/>
+                    </svg>
+                  `)}`,
+                  scaledSize: new window.google.maps.Size(20, 20),
+                  anchor: new window.google.maps.Point(10, 10)
+                }
               }}
             />
           ))}
