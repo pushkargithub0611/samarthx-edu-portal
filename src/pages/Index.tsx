@@ -93,6 +93,13 @@ const newsData = [
     category: "LECTURE UPDATES",
     description: "New certification program launched to recognize schools implementing innovative teaching methods and digital infrastructure.",
     image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
+  },
+  {
+    title: "Rural Schools Digital Transformation Initiative Launched",
+    date: "March 6, 2024",
+    category: "PROGRAM UPDATES",
+    description: "Government launches comprehensive program to bring digital education tools and internet connectivity to 1000+ rural schools across India.",
+    image: "https://images.unsplash.com/photo-1588072432836-e10032774350"
   }
 ];
 
