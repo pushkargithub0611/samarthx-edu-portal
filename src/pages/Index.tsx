@@ -1,16 +1,40 @@
-
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import IndiaMap from "@/components/IndiaMap";
+import { useState } from 'react';
+
+const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
+  Maharashtra: { lat: 19.7515, lng: 75.7139 },
+  Karnataka: { lat: 15.3173, lng: 75.7139 },
+  Gujarat: { lat: 22.2587, lng: 71.1924 },
+  Rajasthan: { lat: 27.0238, lng: 74.2179 },
+  "Madhya Pradesh": { lat: 22.9734, lng: 78.6569 },
+  "Uttar Pradesh": { lat: 26.8467, lng: 80.9462 },
+  Bihar: { lat: 25.0961, lng: 85.3131 },
+  "West Bengal": { lat: 22.9868, lng: 87.8550 },
+  "Tamil Nadu": { lat: 11.1271, lng: 78.6569 },
+  Kerala: { lat: 10.8505, lng: 76.2711 },
+  "Andhra Pradesh": { lat: 15.9129, lng: 79.7400 },
+  Telangana: { lat: 17.1231, lng: 79.2088 },
+  Odisha: { lat: 20.9517, lng: 85.0985 },
+  Chhattisgarh: { lat: 21.2787, lng: 81.8661 },
+  Punjab: { lat: 31.1471, lng: 75.3412 },
+  Haryana: { lat: 29.0588, lng: 76.0856 }
+};
 
 const Index = () => {
   const { toast } = useToast();
+  const [selectedState, setSelectedState] = useState<string | null>(null);
 
   const handleDemoRequest = () => {
     toast({
       title: "Demo Request Sent",
       description: "Our team will contact you shortly.",
     });
+  };
+
+  const handleStateSelect = (state: string) => {
+    setSelectedState(state);
   };
 
   return (
@@ -81,26 +105,23 @@ const Index = () => {
             <div className="bg-white p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">States</h3>
               <div className="space-y-2">
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Maharashtra</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Karnataka</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Gujarat</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Rajasthan</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Madhya Pradesh</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Uttar Pradesh</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Bihar</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">West Bengal</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Tamil Nadu</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Kerala</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Andhra Pradesh</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Telangana</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Odisha</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Chhattisgarh</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Punjab</div>
-                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Haryana</div>
+                {Object.keys(stateCoordinates).map((state) => (
+                  <div
+                    key={state}
+                    className={`p-2 rounded cursor-pointer transition-colors ${
+                      selectedState === state
+                        ? 'bg-orange-100 text-orange-600'
+                        : 'hover:bg-gray-100'
+                    }`}
+                    onClick={() => handleStateSelect(state)}
+                  >
+                    {state}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
-              <IndiaMap />
+              <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
             </div>
           </div>
         </div>
