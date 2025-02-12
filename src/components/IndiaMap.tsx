@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 
 const containerStyle = {
   width: '100%',
-  height: '100%'
+  height: '300px'  // Reduced height from 400px
 };
 
 const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
@@ -46,18 +46,42 @@ interface IndiaMapProps {
 
 const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
   const [selectedMetric, setSelectedMetric] = useState<MetricType>('region');
-  const [regionFilter, setRegionFilter] = useState<'all' | 'north' | 'south'>('all');
 
-  const metrics = [
-    { id: 'region', label: 'Region' },
-    { id: 'drinkingWater', label: 'Percentage of Schools with Drinking Water Facility (2021-22)' },
-    { id: 'enrollment', label: 'Gross Enrolment Ratio (2021-22)' },
-    { id: 'dropout', label: 'Drop-out Rate (2021-22)' },
-    { id: 'computers', label: 'Percentage of Schools with Computers (2021-22)' },
-    { id: 'electricity', label: 'Percentage of Schools with Electricity (2021-22)' },
-    { id: 'boysToilets', label: 'Schools with Boys\' Toilets (2021-22)' },
-    { id: 'girlsToilets', label: 'Schools with Girls\' Toilets (2021-22)' }
-  ] as const;
+  // Mock data for demonstration - replace with actual data
+  const mockMetricData: { [key: string]: { [key: string]: number } } = {
+    Maharashtra: {
+      drinkingWater: 85.2,
+      enrollment: 92.5,
+      dropout: 4.3,
+      computers: 76.8,
+      electricity: 98.2,
+      boysToilets: 95.6,
+      girlsToilets: 94.8
+    }
+  };
+
+  const getMetricValue = (state: string | null, metric: MetricType) => {
+    if (!state || metric === 'region' || !mockMetricData[state]) return null;
+    return mockMetricData[state][metric];
+  };
+
+  const getMetricLabel = (value: number | null, metric: MetricType) => {
+    if (value === null) return 'No data available';
+    switch (metric) {
+      case 'drinkingWater':
+      case 'computers':
+      case 'electricity':
+      case 'boysToilets':
+      case 'girlsToilets':
+        return `${value}%`;
+      case 'enrollment':
+        return `${value}% enrolled`;
+      case 'dropout':
+        return `${value}% dropout rate`;
+      default:
+        return `${value}`;
+    }
+  };
 
   const handleMarkerClick = (stateName: string) => {
     onStateSelect(stateName);
@@ -130,7 +154,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
         </div>
       </Card>
 
-      <div className="md:col-span-9 h-[400px]">
+      <div className="md:col-span-6">
         <LoadScript googleMapsApiKey="">
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -158,6 +182,32 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
           </GoogleMap>
         </LoadScript>
       </div>
+
+      <Card className="p-2 md:col-span-3 flex flex-col">
+        <h3 className="text-sm font-semibold mb-2">Statistics</h3>
+        {selectedState && selectedMetric !== 'region' ? (
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm font-medium">Selected State</p>
+              <p className="text-lg font-bold text-primary">{selectedState}</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium">Selected Metric</p>
+              <p className="text-base">{metrics.find(m => m.id === selectedMetric)?.label}</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium">Value</p>
+              <p className="text-2xl font-bold text-primary">
+                {getMetricLabel(getMetricValue(selectedState, selectedMetric), selectedMetric)}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center h-full text-sm text-muted-foreground">
+            Select a state and metric to view statistics
+          </div>
+        )}
+      </Card>
     </div>
   );
 };
