@@ -39,20 +39,20 @@ const heroImages = [
     description: "AI-Driven, Governance-Connected, Future-Ready!"
   },
   {
-    url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    alt: "Technology in Education",
-    title: "Future-Ready Learning",
-    description: "One Platform for Smarter Schools, Smarter Learning"
+    url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    alt: "Digital Collaboration",
+    title: "Collaborative Learning",
+    description: "Building the future of education together"
   },
   {
-    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    alt: "Digital Learning",
+    url: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
+    alt: "Indian Student Learning",
     title: "Connected Education",
     description: "From Intelligence to Impact – Transforming Education"
   },
   {
-    url: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    alt: "AI Innovation",
+    url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    alt: "Student Technology",
     title: "AI-Driven Education",
     description: "Revolutionizing Learning with Advanced Technology"
   },
