@@ -4,6 +4,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const containerStyle = {
   width: '100%',
@@ -29,13 +30,35 @@ const stateCoordinates: { [key: string]: { lat: number; lng: number } } = {
   Haryana: { lat: 29.0588, lng: 76.0856 }
 };
 
+type MetricType = 
+  | 'region'
+  | 'drinkingWater'
+  | 'enrollment'
+  | 'dropout'
+  | 'computers'
+  | 'electricity'
+  | 'boysToilets'
+  | 'girlsToilets';
+
 interface IndiaMapProps {
   onStateSelect: (state: string) => void;
   selectedState: string | null;
 }
 
 const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
-  const [filter, setFilter] = useState<'all' | 'north' | 'south'>('all');
+  const [selectedMetric, setSelectedMetric] = useState<MetricType>('region');
+  const [regionFilter, setRegionFilter] = useState<'all' | 'north' | 'south'>('all');
+
+  const metrics = [
+    { id: 'region', label: 'Region' },
+    { id: 'drinkingWater', label: 'Percentage of Schools with Drinking Water Facility (2021-22)' },
+    { id: 'enrollment', label: 'Gross Enrolment Ratio (2021-22)' },
+    { id: 'dropout', label: 'Drop-out Rate (2021-22)' },
+    { id: 'computers', label: 'Percentage of Schools with Computers (2021-22)' },
+    { id: 'electricity', label: 'Percentage of Schools with Electricity (2021-22)' },
+    { id: 'boysToilets', label: 'Schools with Boys\' Toilets (2021-22)' },
+    { id: 'girlsToilets', label: 'Schools with Girls\' Toilets (2021-22)' }
+  ] as const;
 
   const handleMarkerClick = (stateName: string) => {
     onStateSelect(stateName);
@@ -62,8 +85,9 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
   };
 
   const filterStates = (states: [string, { lat: number; lng: number }][]) => {
-    if (filter === 'all') return states;
-    if (filter === 'north') {
+    if (selectedMetric !== 'region') return states;
+    if (regionFilter === 'all') return states;
+    if (regionFilter === 'north') {
       return states.filter(([_, coords]) => coords.lat > 23);
     }
     return states.filter(([_, coords]) => coords.lat <= 23);
@@ -87,30 +111,53 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
             </SelectContent>
           </Select>
         </div>
+
+        <Separator />
         
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Filters</h3>
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold">View Metrics</h3>
           <div className="flex flex-col gap-2">
-            <Button 
-              variant={filter === 'all' ? 'default' : 'outline'} 
-              onClick={() => setFilter('all')}
-            >
-              All States
-            </Button>
-            <Button 
-              variant={filter === 'north' ? 'default' : 'outline'} 
-              onClick={() => setFilter('north')}
-            >
-              North India
-            </Button>
-            <Button 
-              variant={filter === 'south' ? 'default' : 'outline'} 
-              onClick={() => setFilter('south')}
-            >
-              South India
-            </Button>
+            {metrics.map((metric) => (
+              <Button 
+                key={metric.id}
+                variant={selectedMetric === metric.id ? 'default' : 'outline'} 
+                onClick={() => setSelectedMetric(metric.id as MetricType)}
+                className="justify-start text-left h-auto py-3 whitespace-normal"
+              >
+                {metric.label}
+              </Button>
+            ))}
           </div>
         </div>
+
+        {selectedMetric === 'region' && (
+          <>
+            <Separator />
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold">Region Filters</h3>
+              <div className="flex flex-col gap-2">
+                <Button 
+                  variant={regionFilter === 'all' ? 'default' : 'outline'} 
+                  onClick={() => setRegionFilter('all')}
+                >
+                  All States
+                </Button>
+                <Button 
+                  variant={regionFilter === 'north' ? 'default' : 'outline'} 
+                  onClick={() => setRegionFilter('north')}
+                >
+                  North India
+                </Button>
+                <Button 
+                  variant={regionFilter === 'south' ? 'default' : 'outline'} 
+                  onClick={() => setRegionFilter('south')}
+                >
+                  South India
+                </Button>
+              </div>
+            </div>
+          </>
+        )}
       </Card>
 
       <div className="md:col-span-2 h-[600px]">
