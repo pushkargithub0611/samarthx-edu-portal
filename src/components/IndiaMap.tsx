@@ -113,9 +113,9 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
 
         <Separator />
         
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h3 className="text-sm font-semibold">View Metrics</h3>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-2">
             {metrics.map((metric) => (
               <Button 
                 key={metric.id}
