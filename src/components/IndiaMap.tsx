@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -122,7 +121,7 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
                 key={metric.id}
                 variant={selectedMetric === metric.id ? 'default' : 'outline'} 
                 onClick={() => setSelectedMetric(metric.id as MetricType)}
-                className="justify-start text-left h-7 py-0 text-xs whitespace-normal"
+                className="justify-start text-left min-h-[48px] py-2 text-xs leading-normal whitespace-normal"
               >
                 {metric.label}
               </Button>
@@ -164,4 +163,3 @@ const IndiaMap = ({ onStateSelect, selectedState }: IndiaMapProps) => {
 };
 
 export default IndiaMap;
-
