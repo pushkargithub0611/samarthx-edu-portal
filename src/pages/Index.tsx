@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import IndiaMap from "@/components/IndiaMap";
@@ -83,7 +84,19 @@ const Index = () => {
                 <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Maharashtra</div>
                 <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Karnataka</div>
                 <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Gujarat</div>
-                {/* Add more states as needed */}
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Rajasthan</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Madhya Pradesh</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Uttar Pradesh</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Bihar</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">West Bengal</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Tamil Nadu</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Kerala</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Andhra Pradesh</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Telangana</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Odisha</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Chhattisgarh</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Punjab</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Haryana</div>
               </div>
             </div>
             <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
