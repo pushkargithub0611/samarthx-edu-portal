@@ -125,6 +125,37 @@ const notificationData = [
   }
 ];
 
+const newsData = [
+  {
+    title: "Students from Delhi Public School Win National Science Competition 2024",
+    date: "March 15, 2024",
+    category: "EVENTS NEWS",
+    description: "A team of young innovators from DPS created an AI-powered solution for sustainable agriculture, securing first place among 500 schools nationwide.",
+    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45"
+  },
+  {
+    title: "Kendriya Vidyalaya launches 'Digital First' Learning Initiative",
+    date: "March 12, 2024",
+    category: "EVENTS NEWS",
+    description: "Revolutionary program integrating AR/VR technology into classroom teaching begins across 50 KV schools, transforming traditional education methods.",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7"
+  },
+  {
+    title: "Navodaya Vidyalaya Students Shine in International Olympiad",
+    date: "March 10, 2024",
+    category: "EVENTS NEWS",
+    description: "Five students from JNV schools receive gold medals in International Mathematics Olympiad, marking a historic achievement for Indian education.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754"
+  },
+  {
+    title: "Education Ministry Announces 'Smart School' Certification Program",
+    date: "March 8, 2024",
+    category: "LECTURE UPDATES",
+    description: "New certification program launched to recognize schools implementing innovative teaching methods and digital infrastructure.",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
+  }
+];
+
 const Index = () => {
   const { toast } = useToast();
   const [selectedState, setSelectedState] = useState<string | null>(null);
@@ -258,47 +289,46 @@ const Index = () => {
       </div>
 
       {/* News & Resources */}
-      <section className="py-12 bg-[#ffe4e1]">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6">Latest Updates</h3>
-              <div className="space-y-4">
-                {newsData.slice(0, 4).map((news, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex justify-between items-center">
-                        <CardTitle className="text-lg font-semibold">{news.title}</CardTitle>
-                        <span className="text-sm text-gray-500">{news.date}</span>
-                      </div>
-                      <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">
-                        {news.category}
-                      </span>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">{news.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-4xl font-bold text-purple-900">News & Updates</h2>
+            <Button variant="link" className="text-gray-500">
+              View All Updates
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Featured News */}
+            <div className="relative">
+              <img 
+                src={newsData[0].image}
+                alt={newsData[0].title}
+                className="w-full h-[400px] object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
+                <div className="text-white">
+                  <span className="text-sm mb-2 inline-block">{newsData[0].category}</span>
+                  <h3 className="text-2xl font-semibold mb-2">{newsData[0].title}</h3>
+                </div>
               </div>
             </div>
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">News and Notifications</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {notificationData.map((notification, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="text-sm font-medium">{notification.title}</CardTitle>
-                      <div className="flex justify-between items-center mt-2">
-                        <span className="text-xs text-gray-500">{notification.date}</span>
-                        <span className="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">
-                          {notification.type}
-                        </span>
-                      </div>
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
+
+            {/* News List */}
+            <div className="space-y-6">
+              {newsData.slice(1).map((news, index) => (
+                <div key={index} className="flex gap-4 hover:bg-gray-50 p-4 rounded-lg transition-colors">
+                  <img 
+                    src={news.image}
+                    alt={news.title}
+                    className="w-24 h-24 object-cover rounded"
+                  />
+                  <div>
+                    <span className="text-sm text-gray-500 mb-1 inline-block">{news.category}</span>
+                    <h3 className="font-semibold text-lg mb-1 text-gray-800">{news.title}</h3>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
