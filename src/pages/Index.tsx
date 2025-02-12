@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import IndiaMap from "@/components/IndiaMap";
 
 const Index = () => {
   const { toast } = useToast();
@@ -78,11 +79,15 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">States</h3>
-              {/* Add dropdown and filters here */}
+              <div className="space-y-2">
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Maharashtra</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Karnataka</div>
+                <div className="p-2 hover:bg-gray-100 rounded cursor-pointer">Gujarat</div>
+                {/* Add more states as needed */}
+              </div>
             </div>
             <div className="md:col-span-2 bg-white p-4 rounded-lg shadow">
-              {/* India map visualization would go here */}
-              <div className="h-64 bg-gray-100 rounded"></div>
+              <IndiaMap />
             </div>
           </div>
         </div>
