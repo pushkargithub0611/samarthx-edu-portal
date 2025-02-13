@@ -210,56 +210,56 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       {/* Top Navigation */}
-      <nav className="bg-white border-b">
+      <nav className="bg-white border-b shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex items-center">
-                <span className="text-2xl font-bold">Samarth</span>
-                <span className="text-2xl font-bold text-[#F97316]">X</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Samarth</span>
+                <span className="text-2xl font-bold text-orange-500">X</span>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost">Parents & Students</Button>
-              <Button variant="ghost">Support</Button>
-              <Button variant="ghost">Search</Button>
-              <Button variant="outline">Login</Button>
-              <Button>Get a Demo</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Parents & Students</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Support</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Search</Button>
+              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">Login</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700">Get a Demo</Button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Secondary Navigation */}
-      <div className="bg-gray-100 border-b">
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
         <div className="container mx-auto px-4">
           <div className="flex overflow-x-auto py-2 space-x-6">
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Solutions</a>
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Dashboards</a>
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">SamarthX AI</a>
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Documents Management</a>
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">Community & Support</a>
-            <a href="#" className="text-sm hover:text-primary whitespace-nowrap">About SamarthX</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Solutions</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Dashboards</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">SamarthX AI</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Documents Management</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Community & Support</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">About SamarthX</a>
           </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-[#e8f3e8] py-8">
+      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16">
         <div className="container mx-auto px-2">
-          <div className="flex flex-col md:flex-row items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
               <Carousel setApi={setApi} className="max-w-[600px]">
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="space-y-2">
-                        <h1 className="text-3xl md:text-4xl font-bold leading-tight">
+                      <div className="space-y-4">
+                        <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                           {image.title}
                         </h1>
-                        <p className="text-base md:text-lg text-gray-600">
+                        <p className="text-lg md:text-xl text-gray-600">
                           {image.description}
                         </p>
                       </div>
@@ -277,11 +277,11 @@ const Index = () => {
                 <CarouselContent>
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="overflow-hidden rounded-lg">
+                      <div className="overflow-hidden rounded-2xl shadow-xl">
                         <img 
                           src={image.url} 
                           alt={image.alt}
-                          className="w-full h-[300px] md:h-[350px] object-cover transition-transform duration-500 hover:scale-105"
+                          className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>
                     </CarouselItem>
@@ -294,27 +294,27 @@ const Index = () => {
       </section>
 
       {/* Map Section */}
-      <section className="bg-[#fff3e0] py-4">
+      <section className="bg-gradient-to-br from-orange-50 to-yellow-50 py-12">
         <div className="container mx-auto px-2">
           <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
         </div>
       </section>
 
       {/* Features Bar */}
-      <section className="py-12 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-nowrap overflow-x-auto space-x-4 pb-4">
+            <div className="flex flex-nowrap overflow-x-auto space-x-4 pb-4 scrollbar-hide">
               {erpDomains.map((domain) => (
                 <Button
                   key={domain.id}
                   variant={selectedDomain.id === domain.id ? "secondary" : "ghost"}
-                  className={`flex-shrink-0 min-w-[200px] h-24 flex flex-col items-center justify-center gap-2 text-white hover:bg-white/20 ${
-                    selectedDomain.id === domain.id ? "bg-white/20" : ""
+                  className={`flex-shrink-0 min-w-[200px] h-28 flex flex-col items-center justify-center gap-3 text-white hover:bg-white/20 transition-all duration-300 ${
+                    selectedDomain.id === domain.id ? "bg-white/20 scale-105" : ""
                   }`}
                   onClick={() => setSelectedDomain(domain)}
                 >
-                  <domain.icon className="w-6 h-6" />
+                  <domain.icon className="w-7 h-7" />
                   <div className="text-center">
                     <div className="font-semibold whitespace-nowrap">{domain.title}</div>
                     <div className="text-xs opacity-80 whitespace-nowrap">{domain.subtitle}</div>
@@ -324,20 +324,20 @@ const Index = () => {
             </div>
             
             <div className="w-full">
-              <div className="bg-white/10 rounded-lg p-6 space-y-6">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 space-y-8 transform transition-all duration-500">
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-3xl font-bold text-white">
                     {selectedDomain.title}
                   </h3>
-                  <p className="text-lg text-white/90">
+                  <p className="text-xl text-white/90">
                     {selectedDomain.description}
                   </p>
                 </div>
-                <div className="overflow-hidden rounded-lg transition-all duration-500">
+                <div className="overflow-hidden rounded-xl shadow-2xl transition-all duration-500">
                   <img
                     src={selectedDomain.image}
                     alt={selectedDomain.title}
-                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
@@ -347,29 +347,29 @@ const Index = () => {
       </section>
 
       {/* News & Resources */}
-      <section className="py-12 bg-white">
+      <section className="py-16 bg-gradient-to-br from-white to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-8">
             <div className="flex justify-between items-center">
-              <h2 className="text-4xl font-bold text-purple-900">News & Updates</h2>
-              <Button variant="link" className="text-gray-400">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">News & Updates</h2>
+              <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
                 View All Updates
               </Button>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Featured News */}
-              <div>
-                <div className="relative">
+              <div className="transform transition-all duration-300 hover:scale-[1.02]">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl">
                   <img 
                     src={newsData[0].image}
                     alt={newsData[0].title}
-                    className="w-full h-[500px] object-cover rounded-lg"
+                    className="w-full h-[500px] object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
                     <div className="text-white">
-                      <span className="text-sm font-medium mb-2 inline-block">{newsData[0].category}</span>
-                      <h3 className="text-2xl font-semibold">{newsData[0].title}</h3>
+                      <span className="text-sm font-medium px-3 py-1 bg-blue-600 rounded-full mb-3 inline-block">{newsData[0].category}</span>
+                      <h3 className="text-2xl font-bold">{newsData[0].title}</h3>
                     </div>
                   </div>
                 </div>
@@ -378,15 +378,15 @@ const Index = () => {
               {/* News List */}
               <div className="space-y-6">
                 {newsData.slice(1).map((news, index) => (
-                  <div key={index} className="flex gap-4 group cursor-pointer">
+                  <div key={index} className="flex gap-6 group cursor-pointer transform transition-all duration-300 hover:scale-[1.02]">
                     <img 
                       src={news.image}
                       alt={news.title}
-                      className="w-32 h-24 object-cover rounded"
+                      className="w-40 h-32 object-cover rounded-xl shadow-lg"
                     />
                     <div>
-                      <span className="text-sm text-gray-500 mb-1 inline-block">{news.category}</span>
-                      <h3 className="font-semibold text-lg text-gray-800 group-hover:text-purple-900 transition-colors">
+                      <span className="text-sm text-blue-600 font-medium px-3 py-1 bg-blue-50 rounded-full mb-2 inline-block">{news.category}</span>
+                      <h3 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors">
                         {news.title}
                       </h3>
                     </div>
@@ -399,14 +399,14 @@ const Index = () => {
       </section>
 
       {/* Resources Carousel */}
-      <section className="py-12 bg-[#fff8dc]">
+      <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
         <div className="container mx-auto px-4">
-          <Button variant="outline" className="mb-4">View More Resources</Button>
-          <div className="flex overflow-x-auto space-x-4 pb-4">
+          <Button variant="outline" className="mb-8 text-blue-600 border-blue-600 hover:bg-blue-50">View More Resources</Button>
+          <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-hide">
             {Array(5).fill(null).map((_, i) => (
-              <div key={i} className="flex-none w-64">
-                <div className="bg-blue-500 h-36 rounded-lg"></div>
-                <p className="mt-2 text-sm text-center">Resource {i + 1}</p>
+              <div key={i} className="flex-none w-72 transform transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-600 h-48 rounded-xl shadow-xl"></div>
+                <p className="mt-4 text-sm text-center text-gray-600">Resource {i + 1}</p>
               </div>
             ))}
           </div>
@@ -414,29 +414,29 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-[#8b4513] text-white py-12">
+      <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold">1.57 Million</div>
-              <div>Students</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-8 rounded-xl bg-white/10 backdrop-blur-lg">
+              <div className="text-4xl font-bold mb-2">1.57 Million</div>
+              <div className="text-xl text-white/80">Students</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold">1.57 Million</div>
-              <div>Students</div>
+            <div className="p-8 rounded-xl bg-white/10 backdrop-blur-lg">
+              <div className="text-4xl font-bold mb-2">1.57 Million</div>
+              <div className="text-xl text-white/80">Students</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold">1.57 Million</div>
-              <div>Students</div>
+            <div className="p-8 rounded-xl bg-white/10 backdrop-blur-lg">
+              <div className="text-4xl font-bold mb-2">1.57 Million</div>
+              <div className="text-xl text-white/80">Students</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <section className="bg-[#4b0082] text-white py-8">
+      <section className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-lg mb-8">Trusted to power 1400+ institutions, multiple campuses, and systems</p>
+          <p className="text-xl mb-12">Trusted to power 1400+ institutions, multiple campuses, and systems</p>
           <div className="flex justify-center space-x-8">
             {/* Add partner logos here */}
           </div>
@@ -444,20 +444,20 @@ const Index = () => {
       </section>
 
       {/* Demo Section */}
-      <section className="py-12 bg-[#f0f8ff]">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <div className="flex items-center">
               <div>
-                <h2 className="text-2xl font-bold mb-4">We're in this together.</h2>
-                <p className="text-gray-600">
-                  Let's discuss how Banner can drive innovation and successful outcomes for your entire institution.
+                <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">We're in this together.</h2>
+                <p className="text-gray-600 text-lg">
+                  Let's discuss how SamarthX can drive innovation and successful outcomes for your entire institution.
                 </p>
-                <Button className="mt-4">Get a Live Demo</Button>
+                <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Get a Live Demo</Button>
               </div>
             </div>
-            <div className="bg-[#00008b] text-white p-8 rounded-lg">
-              <h3 className="text-xl font-bold mb-6">Get a Demo.</h3>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-8 rounded-2xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6">Get a Demo.</h3>
               <form onSubmit={(e) => {
                 e.preventDefault();
                 handleDemoRequest();
@@ -466,43 +466,43 @@ const Index = () => {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="p-2 rounded text-black"
+                    className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                     required
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="p-2 rounded text-black"
+                    className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                     required
                   />
                 </div>
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full p-2 rounded text-black"
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                   required
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full p-2 rounded text-black"
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                   required
                 />
                 <div className="grid grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Job Title"
-                    className="p-2 rounded text-black"
+                    className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                     required
                   />
                   <input
                     type="text"
                     placeholder="School/District"
-                    className="p-2 rounded text-black"
+                    className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                     required
                   />
                 </div>
-                <Button type="submit" variant="outline" className="w-full">
+                <Button type="submit" variant="secondary" className="w-full bg-white text-blue-600 hover:bg-blue-50">
                   Submit
                 </Button>
               </form>
