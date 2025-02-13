@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import IndiaMap from "@/components/IndiaMap";
@@ -9,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import * * as React from "react"
+import * as React from "react"
 import useEmblaCarousel from 'embla-carousel-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Shield, ChartBar, Clock, GraduationCap } from "lucide-react";
