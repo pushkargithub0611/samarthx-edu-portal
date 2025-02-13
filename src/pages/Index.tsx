@@ -180,6 +180,39 @@ const erpDomains = [
   },
 ];
 
+const resourcesData = [
+  {
+    title: "AI in Education Guide",
+    description: "Comprehensive guide for implementing AI in schools",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    category: "Guide"
+  },
+  {
+    title: "Digital Assessment Tools",
+    description: "Best practices for online student evaluation",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    category: "Tools"
+  },
+  {
+    title: "Smart Classroom Setup",
+    description: "Technical guide for modern classroom infrastructure",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+    category: "Infrastructure"
+  },
+  {
+    title: "Data Analytics Workshop",
+    description: "Learn to leverage educational data insights",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    category: "Workshop"
+  },
+  {
+    title: "Parent Portal Guide",
+    description: "Maximizing parent-school communication",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    category: "Guide"
+  }
+];
+
 const Index = () => {
   const { toast } = useToast();
   const [selectedState, setSelectedState] = useState<string | null>(null);
@@ -401,12 +434,31 @@ const Index = () => {
       {/* Resources Carousel */}
       <section className="py-12 bg-[#fff8dc]">
         <div className="container mx-auto px-4">
-          <Button variant="outline" className="mb-4">View More Resources</Button>
-          <div className="flex overflow-x-auto space-x-4 pb-4">
-            {Array(5).fill(null).map((_, i) => (
-              <div key={i} className="flex-none w-64">
-                <div className="bg-blue-500 h-36 rounded-lg"></div>
-                <p className="mt-2 text-sm text-center">Resource {i + 1}</p>
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-800">Educational Resources</h2>
+            <Button variant="outline" className="mb-4">View More Resources</Button>
+          </div>
+          <div className="flex overflow-x-auto space-x-6 pb-6">
+            {resourcesData.map((resource, i) => (
+              <div key={i} className="flex-none w-72">
+                <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+                  <div className="relative h-40">
+                    <img 
+                      src={resource.image} 
+                      alt={resource.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <span className="bg-white/90 px-2 py-1 rounded-full text-xs font-medium text-gray-700">
+                        {resource.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg mb-2 text-gray-800">{resource.title}</h3>
+                    <p className="text-sm text-gray-600">{resource.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
