@@ -211,44 +211,44 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] to-[#e2e8f0]">
       {/* Top Navigation */}
-      <nav className="bg-white border-b shadow-sm">
+      <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex items-center">
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Samarth</span>
-                <span className="text-2xl font-bold text-orange-500">X</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">Samarth</span>
+                <span className="text-2xl font-bold text-[#f97316]">X</span>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Parents & Students</Button>
-              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Support</Button>
-              <Button variant="ghost" className="text-gray-600 hover:text-blue-600">Search</Button>
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">Login</Button>
-              <Button className="bg-blue-600 hover:bg-blue-700">Get a Demo</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-[#6366f1]">Parents & Students</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-[#6366f1]">Support</Button>
+              <Button variant="ghost" className="text-gray-600 hover:text-[#6366f1]">Search</Button>
+              <Button variant="outline" className="border-[#6366f1] text-[#6366f1] hover:bg-[#6366f1]/5">Login</Button>
+              <Button className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white hover:opacity-90">Get a Demo</Button>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Secondary Navigation */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
+      <div className="bg-gradient-to-r from-[#f1f5f9] to-[#e2e8f0] border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex overflow-x-auto py-2 space-x-6">
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Solutions</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Dashboards</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">SamarthX AI</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Documents Management</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Community & Support</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">About SamarthX</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">Solutions</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">Dashboards</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">SamarthX AI</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">Documents Management</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">Community & Support</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-[#6366f1] whitespace-nowrap transition-colors">About SamarthX</a>
           </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16">
+      <section className="bg-gradient-to-br from-[#f8fafc] via-[#e2e8f0] to-[#f1f5f9] py-16">
         <div className="container mx-auto px-2">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
@@ -257,7 +257,7 @@ const Index = () => {
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
                       <div className="space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                        <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                           {image.title}
                         </h1>
                         <p className="text-lg md:text-xl text-gray-600">
@@ -295,15 +295,15 @@ const Index = () => {
       </section>
 
       {/* Map Section */}
-      <section className="bg-gradient-to-br from-orange-50 to-yellow-50 py-12">
+      <section className="bg-gradient-to-br from-[#fff7ed] to-[#fef3c7] py-12">
         <div className="container mx-auto px-2">
           <IndiaMap onStateSelect={handleStateSelect} selectedState={selectedState} />
         </div>
       </section>
 
       {/* Features Bar */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-        <div className="container mx-auto px-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-xl">
+      <section className="py-16 bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a855f7]">
+        <div className="container mx-auto px-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-xl">
           <div className="flex flex-col gap-8">
             <div className="flex flex-nowrap overflow-x-auto space-x-4 pb-4 scrollbar-hide">
               {erpDomains.map((domain) => (
@@ -348,12 +348,12 @@ const Index = () => {
       </section>
 
       {/* News & Resources */}
-      <section className="py-16 bg-gradient-to-br from-white to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-white to-[#f1f5f9]">
         <div className="container mx-auto px-4">
           <div className="flex flex-col space-y-8">
             <div className="flex justify-between items-center">
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">News & Updates</h2>
-              <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">News & Updates</h2>
+              <Button variant="outline" className="text-[#6366f1] border-[#6366f1] hover:bg-[#6366f1]/5">
                 View All Updates
               </Button>
             </div>
@@ -369,7 +369,7 @@ const Index = () => {
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
                     <div className="text-white">
-                      <span className="text-sm font-medium px-3 py-1 bg-blue-600 rounded-full mb-3 inline-block">{newsData[0].category}</span>
+                      <span className="text-sm font-medium px-3 py-1 bg-[#6366f1] rounded-full mb-3 inline-block">{newsData[0].category}</span>
                       <h3 className="text-2xl font-bold">{newsData[0].title}</h3>
                     </div>
                   </div>
@@ -386,8 +386,8 @@ const Index = () => {
                       className="w-40 h-32 object-cover rounded-xl shadow-lg"
                     />
                     <div>
-                      <span className="text-sm text-blue-600 font-medium px-3 py-1 bg-blue-50 rounded-full mb-2 inline-block">{news.category}</span>
-                      <h3 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors">
+                      <span className="text-sm text-[#6366f1] font-medium px-3 py-1 bg-[#6366f1]/5 rounded-full mb-2 inline-block">{news.category}</span>
+                      <h3 className="font-bold text-xl text-gray-800 group-hover:text-[#6366f1] transition-colors">
                         {news.title}
                       </h3>
                     </div>
@@ -400,13 +400,13 @@ const Index = () => {
       </section>
 
       {/* Resources Carousel */}
-      <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+      <section className="py-16 bg-gradient-to-br from-[#f1f5f9] to-[#f8fafc]">
         <div className="container mx-auto px-4">
-          <Button variant="outline" className="mb-8 text-blue-600 border-blue-600 hover:bg-blue-50">View More Resources</Button>
+          <Button variant="outline" className="mb-8 text-[#6366f1] border-[#6366f1] hover:bg-[#6366f1]/5">View More Resources</Button>
           <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-hide">
             {Array(5).fill(null).map((_, i) => (
               <div key={i} className="flex-none w-72 transform transition-all duration-300 hover:scale-105">
-                <div className="bg-gradient-to-br from-blue-600 to-indigo-600 h-48 rounded-xl shadow-xl"></div>
+                <div className="bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] h-48 rounded-xl shadow-xl"></div>
                 <p className="mt-4 text-sm text-center text-gray-600">Resource {i + 1}</p>
               </div>
             ))}
@@ -415,7 +415,7 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a855f7] text-white py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8 rounded-xl bg-white/10 backdrop-blur-lg">
@@ -435,7 +435,7 @@ const Index = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <p className="text-xl mb-12">Trusted to power 1400+ institutions, multiple campuses, and systems</p>
           <div className="flex justify-center space-x-8">
@@ -445,19 +445,19 @@ const Index = () => {
       </section>
 
       {/* Demo Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-16 bg-gradient-to-br from-[#f1f5f9] to-[#f8fafc]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <div className="flex items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">We're in this together.</h2>
+                <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">We're in this together.</h2>
                 <p className="text-gray-600 text-lg">
                   Let's discuss how SamarthX can drive innovation and successful outcomes for your entire institution.
                 </p>
-                <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Get a Live Demo</Button>
+                <Button className="mt-6 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white hover:opacity-90">Get a Live Demo</Button>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-8 rounded-2xl shadow-xl">
+            <div className="bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] text-white p-8 rounded-2xl shadow-xl">
               <h3 className="text-2xl font-bold mb-6">Get a Demo.</h3>
               <form onSubmit={(e) => {
                 e.preventDefault();
@@ -503,7 +503,7 @@ const Index = () => {
                     required
                   />
                 </div>
-                <Button type="submit" variant="secondary" className="w-full bg-white text-blue-600 hover:bg-blue-50">
+                <Button type="submit" variant="secondary" className="w-full bg-white text-[#6366f1] hover:bg-blue-50">
                   Submit
                 </Button>
               </form>
