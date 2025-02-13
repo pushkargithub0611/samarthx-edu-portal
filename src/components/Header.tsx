@@ -4,6 +4,17 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   return (
     <>
+      <div className="bg-[#1A1F2C] text-white py-2">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl font-bold mb-1">
+            <span>Samarth</span>
+            <span className="text-[#F97316]">X</span>
+          </h1>
+          <h2 className="text-xl font-semibold mb-1">Empowering Schools, Transforming Education</h2>
+          <p className="text-sm text-gray-300">AI-Driven, Governance-Connected, Future-Ready!</p>
+        </div>
+      </div>
+
       <nav className="bg-white border-b">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
