@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import * as React from "react"
+import * * as React from "react"
 import useEmblaCarousel from 'embla-carousel-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Shield, ChartBar, Clock, GraduationCap } from "lucide-react";
@@ -302,7 +302,7 @@ const Index = () => {
 
       {/* Features Bar */}
       <section className="py-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-xl">
           <div className="flex flex-col gap-8">
             <div className="flex flex-nowrap overflow-x-auto space-x-4 pb-4 scrollbar-hide">
               {erpDomains.map((domain) => (
