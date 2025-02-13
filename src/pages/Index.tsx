@@ -303,27 +303,27 @@ const Index = () => {
       {/* Features Bar */}
       <section className="py-12 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-1/3 space-y-4">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-nowrap overflow-x-auto space-x-4 pb-4">
               {erpDomains.map((domain) => (
                 <Button
                   key={domain.id}
                   variant={selectedDomain.id === domain.id ? "secondary" : "ghost"}
-                  className={`w-full justify-start gap-4 text-white hover:bg-white/20 ${
+                  className={`flex-shrink-0 min-w-[200px] h-24 flex flex-col items-center justify-center gap-2 text-white hover:bg-white/20 ${
                     selectedDomain.id === domain.id ? "bg-white/20" : ""
                   }`}
                   onClick={() => setSelectedDomain(domain)}
                 >
-                  <domain.icon className="w-5 h-5" />
-                  <div className="text-left">
-                    <div className="font-semibold">{domain.title}</div>
-                    <div className="text-sm opacity-80">{domain.subtitle}</div>
+                  <domain.icon className="w-6 h-6" />
+                  <div className="text-center">
+                    <div className="font-semibold whitespace-nowrap">{domain.title}</div>
+                    <div className="text-xs opacity-80 whitespace-nowrap">{domain.subtitle}</div>
                   </div>
                 </Button>
               ))}
             </div>
             
-            <div className="lg:w-2/3">
+            <div className="w-full">
               <div className="bg-white/10 rounded-lg p-6 space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-white">
