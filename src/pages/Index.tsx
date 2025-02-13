@@ -247,7 +247,7 @@ const Index = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-[#e8f3e8] py-8">
+      <section className="bg-[#D3E4FD] py-8">
         <div className="container mx-auto px-2">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="md:w-1/2">
